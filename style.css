@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header 
+
+.hidden {
+    transform: translateY(-100px);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    top: 1vw;
+    left: 0;
+    right: 0;
+    width: 98vw;
+    margin: auto;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #040016;
+    border-radius: 10px;
+    background-color: #201e5c;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+header nav ul {
+    
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-family: 'SpaceMono Nerd Font', FontAwesome;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 10px;
+}
+
+header h2 {
+    font-family: Droid serif, serif;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+/* Hero Section */
+
+.Hero {
+
+    height: 100vh;
+    width: 100vw;
+}
+
+.Hero h1{
+    margin: auto, 100px;
+    text-align: center;
+    font-family: Century Gothic, sans-serif;
+}
+
+.Welcome {
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    font-family: Century Gothic, sans-serif;
+}
