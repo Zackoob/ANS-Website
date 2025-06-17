@@ -6,14 +6,12 @@
     padding: 0;
 }
 
-/* Header 
+/* Header */
 
 .hidden {
     transform: translateY(-100px);
     transition: transform 0.3s ease-in-out;
 }
-
-/* Header */
 
 header {
     position: fixed;
