@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+
+.headerHidden {
+	transform: translateY(-100px);
+    transition: transform 0.5s ease-in-out;
+}
+
+.hidden {
+	opacity: 0;
+    transform: translateY(200px);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.show {
+	opacity: 1;
+	transform: translateY(0);
+	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+header {
+    position: fixed;
+    top: 1vw;
+    left: 0;
+    right: 0;
+    width: 98vw;
+    margin: auto;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #385ae0;
+    border-radius: 10px;
+    background-color: #201e5c;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+header nav ul {
+    
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 10px;
+}
+
+header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+/* Hero Section */
+
+.HeroBackground {
+	background-image: url("Content/Hero_Background.jpg");
+	height: 100vh;
+	padding: 20vh;
+	background-attachment: fixed;
+ 	background-position: center;
+	background-repeat: no-repeat;
+ 	background-size: cover;	
+}
+
+
+
+#HeroHeading, #HeroByline {
+	opacity: 1;
+    margin: auto;
+    text-align: center;
+	padding-top: 5vh;
+    font-family: Century Gothic, sans-serif;
+	font-weight: 700;
+	color: white;
+	transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+}
+
+#HeroHeading.hidden, #HeroByline.hidden {
+	transform: translateY(-100px);
+	opacity: 0;
+	transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;	
+}
+
+.Welcome {
+    height: 100vh;
+	background-image: url("Content/Hero_Background.jpg");
+	backdrop-filter: blur(10px);
+	background-attachment: fixed;
+ 	background-position: center;
+	background-repeat: no-repeat;
+ 	background-size: cover;	
+    text-align: center;
+    font-family: Century Gothic, sans-serif;
+}
