@@ -1,31 +1,26 @@
 let lastScrollY = window.scrollY;
 
+/* Header scroll effect */
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
-	const heroHeading = document.getElementById('HeroHeading');
-	const heroByline = document.getElementById('HeroByline');
 	
     if (window.scrollY > lastScrollY) {
         header.classList.add('headerHidden');
-		heroHeading.classList.add('hidden');
-		heroByline.classList.add('hidden');
     }
     else {
         header.classList.remove('headerHidden');
-		heroHeading.classList.remove('hidden');
-		heroByline.classList.remove('hidden');
     }
 	
     lastScrollY = window.scrollY;
 });
 
+/* Scroll effect when first shown on screen */
+
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
 		if (entry.isIntersecting) {
 			entry.target.classList.add('show');
-		}
-		else {
-			entry.target.classList.remove('show');
 		}
 	});
 }, {
@@ -34,3 +29,22 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el)); 
+
+const hiddenElements2 = document.getElementById('HeroHeading');
+observer.observe(hiddenElements2);
+
+/* Scroll effect for the hero */
+window.addEventListener('scroll', () => {
+	const heroHeading = document.getElementById('HeroHeading');
+	const heroByline =  document.getElementById('HeroByline');
+	const scrollThreshold = 250;
+
+	if (window.scrollY > scrollThreshold) {
+		heroHeading.classList.add('fade');
+		heroByline.classList.add('fade');
+	}
+	else {
+		heroHeading.classList.remove('fade');
+		heroByline.classList.remove('fade');
+	}
+});
