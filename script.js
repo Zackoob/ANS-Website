@@ -37,14 +37,27 @@ observer.observe(hiddenElements2);
 window.addEventListener('scroll', () => {
 	const heroHeading = document.getElementById('HeroHeading');
 	const heroByline =  document.getElementById('HeroByline');
-	const scrollThreshold = 250;
+	const heroThreshold = 250;
 
-	if (window.scrollY > scrollThreshold) {
+
+	if (window.scrollY > heroThreshold) {
 		heroHeading.classList.add('fade');
 		heroByline.classList.add('fade');
 	}
 	else {
 		heroHeading.classList.remove('fade');
 		heroByline.classList.remove('fade');
+	}
+});
+
+window.addEventListener('scroll', () => {
+	const welcomeBackground = document.getElementById('welcomeBackground');
+	const scrollThreshold = 500;
+
+	if (window.scrollY > scrollThreshold) {
+		welcomeBackground.classList.remove('fade');
+	}
+	else {
+		welcomeBackground.classList.add('fade');
 	}
 });
