@@ -6,13 +6,45 @@
     padding: 0;
 }
 
-body {
+/*body {
     height: 100vh;
 	background-image: url("Content/Hero_Background.jpg");
 	background-attachment: fixed;
  	background-position: center;
 	background-repeat: no-repeat;
  	background-size: cover;	
+} */
+
+body {
+    position: relative;
+    overflow: auto;
+    min-height: 100%;
+    background-image: url("Content/Hero_Background.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-overflow-scrolling: touch;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("Content/Hero_Background.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: translateZ(0);
+}
+
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: local; /* This is a lifesaver */
+    }
 }
 
 /* Global styles - For  Javascript stuff */
@@ -80,15 +112,40 @@ header h2 {
 
 /* Hero Section */
 
-.HeroBackground {
-	background-image: url("Content/Hero_Background.jpg");
-	height: 100vh;
-	padding: 20vh;
-	background-attachment: fixed;
- 	background-position: center;
-	background-repeat: no-repeat;
- 	background-size: cover;	
+/*.background {
+    position: relative;
+    overflow: hidden;
 }
+
+.background::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("Content/Hero_Background.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .background::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 110vw;
+        height: 110vh;
+        background-image: url("Content/Hero_Background.jpg"); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+} */
 
 #HeroHeading, #HeroByline {
     font-size: 3.5vw;
@@ -105,6 +162,7 @@ header h2 {
 	font-weight: 700;
 	color: white;
 	transition: all 0.75s ease-in-out;
+    z-index: 1;
 }
 
 #HeroByline { 
@@ -135,7 +193,7 @@ header h2 {
 /* Welcome Section */
 
 .main {
-    height: 2000px;
+    height: 200vh;
 }
 
 #welcomeBackground {
