@@ -39,7 +39,7 @@ hiddenElements.forEach((el) => observer.observe(el)); */
 window.addEventListener('scroll', () => {
 	const heroHeading = document.getElementById('HeroHeading');
 	const heroByline =  document.getElementById('HeroByline');
-	const heroThreshold = 250;
+	const heroThreshold = 400;
 
 
 	if (window.scrollY > heroThreshold) {
@@ -59,8 +59,8 @@ window.addEventListener('scroll', () => {
 	const welcomeBackground = document.getElementById('welcomeBackground');
 	const welcomeHeader = document.getElementById('welcome-header');
 	const welcomeParagraph = document.getElementById('welcome-paragraph');
-	const scrollThreshold = 500;
-	const screenThreshold = 900;
+	const scrollThreshold = 400;
+	const screenThreshold = 1400;
 
 	if (window.scrollY > screenThreshold) {
 		welcomeBackground.classList.add('project-background');
@@ -95,7 +95,7 @@ window.addEventListener('scroll', () => {
 	const projectsHeader = document.getElementById('projects-header');
 	const projectsParagraph = document.getElementById('projects-paragraph');
 	const welcomeBackground = document.getElementById('welcomeBackground');
-	const projectThreshold = 1000;
+	const projectThreshold = 1400;
 
 	if (window.scrollY > projectThreshold) {
 		projectsHeader.classList.remove('fade');

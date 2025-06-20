@@ -175,28 +175,31 @@ header h2 {
 } 
 
 #welcome-header {
-    top: 6vh;
+    top: 5vh;
     left: 50%;
+    font-size: 3vw;
+    font-weight: 600;
     transform: translate(-50%, -50%);
-    max-width: 29vw;
+    min-width: 70vw;
 }
 
 #welcome-paragraph {
-    top: 18vh;
+    top: 24vh;
     left: 50%;
+    font-size: 1.5vw;
     transform: translate(-50%, -50%);
     min-width: 70vw;
 }
 
 #welcome-header.fade, #welcome-paragraph.fade {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translate(-50%, -50%) translateY(100px);
     transition: all 0.75s ease-in-out;
 }
 
 #welcome-header.fade-out, #welcome-paragraph.fade-out {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translate(-50%, -50%) translateY(-100px);
     transition: all 0.75s ease-in-out;
 }
 
@@ -222,27 +225,32 @@ header h2 {
     text-align: center;
 	padding-top: 5vh;
     font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
+	font-weight: 500;
 	color: white;
 	transition: all 0.75s ease-in-out;
 }
 #projects-header {
-    top: 18vh;
+    top: 5vh;
+    font-size: 3vw;
+    font-weight: 600;
     left: 50%;
-    transform: translate(-50%, -50%); /* this causes the wierd moving from diagonnal*/
+    transform: translate(-50%, -50%); 
     min-width: 70vw;
+    transition: all 0.75s ease-in-out;
 }
 
 #projects-paragraph {
-    top: 18vh;
+    top: 26vh;
     left: 50%;
+    font-size: 1.5vw;
     transform: translate(-50%, -50%);
     min-width: 70vw;
+    transition: all 0.75s ease-in-out;
 }
 
 
 #projects-header.fade, #projects-paragraph.fade {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translate(-50%, -50%) translateY(100px) scale(0.5);
     transition: all 0.75s ease-in-out;
 }
