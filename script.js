@@ -16,7 +16,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-/* Scroll effect when first shown on screen */
+/* Scroll effect when first shown on screen 
 
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
@@ -29,7 +29,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el)); 
+hiddenElements.forEach((el) => observer.observe(el)); */
 
 //const hiddenElements2 = document.getElementById('HeroHeading');
 //observer.observe(hiddenElements2);
@@ -57,20 +57,37 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('scroll', () => {
 	const welcomeBackground = document.getElementById('welcomeBackground');
+	const welcomeHeader = document.getElementById('welcome-header');
+	const welcomeParagraph = document.getElementById('welcome-paragraph');
 	const scrollThreshold = 500;
 	const screenThreshold = 900;
 
 	if (window.scrollY > screenThreshold) {
 		welcomeBackground.classList.add('project-background');
 		welcomeBackground.classList.remove('fade');
+
+		welcomeHeader.classList.remove('fade');
+		welcomeParagraph.classList.remove('fade');
+		welcomeHeader.classList.add('fade-out');
+		welcomeParagraph.classList.add('fade-out')
 	}
 	else if (window.scrollY > scrollThreshold) {
 		welcomeBackground.classList.remove('fade');
 		welcomeBackground.classList.remove('project-background');
+
+		welcomeHeader.classList.remove('fade');
+		welcomeParagraph.classList.remove('fade');
+		welcomeHeader.classList.remove('fade-out');
+		welcomeParagraph.classList.remove('fade-out');
 	}
 	else {
 		welcomeBackground.classList.add('fade');
 		welcomeBackground.classList.remove('project-background');
+
+		welcomeHeader.classList.add('fade');
+		welcomeParagraph.classList.add('fade');
+		welcomeHeader.classList.remove('fade-out');
+		welcomeParagraph.classList.remove('fade-out');
 	}
 });
 
@@ -83,6 +100,7 @@ window.addEventListener('scroll', () => {
 	if (window.scrollY > projectThreshold) {
 		projectsHeader.classList.remove('fade');
 		projectsParagraph.classList.remove('fade');
+
 	}
 	else {
 		projectsHeader.classList.add('fade');

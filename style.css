@@ -25,7 +25,6 @@ body {
 .hidden {
 	opacity: 0;
     transform: translateY(200px);
-    color: #ffffff;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -133,6 +132,8 @@ header h2 {
 }
 
 
+/* Welcome Section */
+
 .main {
     height: 2000px;
 }
@@ -161,6 +162,47 @@ header h2 {
     transition: all 0.75s ease-in-out;
 }
 
+#welcome-header, #welcome-paragraph {
+    position: fixed;
+	opacity: 1;
+    margin: auto;
+    text-align: center;
+	padding-top: 5vh;
+    font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+	color: white;
+	transition: all 0.75s ease-in-out;
+} 
+
+#welcome-header {
+    top: 6vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 29vw;
+}
+
+#welcome-paragraph {
+    top: 18vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 70vw;
+}
+
+#welcome-header.fade, #welcome-paragraph.fade {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.75s ease-in-out;
+}
+
+#welcome-header.fade-out, #welcome-paragraph.fade-out {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 0.75s ease-in-out;
+}
+
+
+/* Project */
+
 #welcomeBackground.project-background {
     top: 25%;
     left: 10%;
@@ -184,6 +226,21 @@ header h2 {
 	color: white;
 	transition: all 0.75s ease-in-out;
 }
+#projects-header {
+    top: 18vh;
+    left: 50%;
+    transform: translate(-50%, -50%); /* this causes the wierd moving from diagonnal*/
+    min-width: 70vw;
+}
+
+#projects-paragraph {
+    top: 18vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 70vw;
+}
+
+
 #projects-header.fade, #projects-paragraph.fade {
     opacity: 0;
     transform: translateY(100px);
