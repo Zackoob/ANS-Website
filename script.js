@@ -15,6 +15,7 @@ window.addEventListener('scroll', () => {
     lastScrollY = window.scrollY;
 });
 
+
 /* Scroll effect when first shown on screen */
 
 const observer = new IntersectionObserver((entries) => {
@@ -30,8 +31,9 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el)); 
 
-const hiddenElements2 = document.getElementById('HeroHeading');
-observer.observe(hiddenElements2);
+//const hiddenElements2 = document.getElementById('HeroHeading');
+//observer.observe(hiddenElements2);
+
 
 /* Scroll effect for the hero */
 window.addEventListener('scroll', () => {
@@ -50,14 +52,40 @@ window.addEventListener('scroll', () => {
 	}
 });
 
+
+/* Scroll effect for the welcome */
+
 window.addEventListener('scroll', () => {
 	const welcomeBackground = document.getElementById('welcomeBackground');
 	const scrollThreshold = 500;
+	const screenThreshold = 900;
 
-	if (window.scrollY > scrollThreshold) {
+	if (window.scrollY > screenThreshold) {
+		welcomeBackground.classList.add('project-background');
 		welcomeBackground.classList.remove('fade');
+	}
+	else if (window.scrollY > scrollThreshold) {
+		welcomeBackground.classList.remove('fade');
+		welcomeBackground.classList.remove('project-background');
 	}
 	else {
 		welcomeBackground.classList.add('fade');
+		welcomeBackground.classList.remove('project-background');
+	}
+});
+
+window.addEventListener('scroll', () => {
+	const projectsHeader = document.getElementById('projects-header');
+	const projectsParagraph = document.getElementById('projects-paragraph');
+	const welcomeBackground = document.getElementById('welcomeBackground');
+	const projectThreshold = 1000;
+
+	if (window.scrollY > projectThreshold) {
+		projectsHeader.classList.remove('fade');
+		projectsParagraph.classList.remove('fade');
+	}
+	else {
+		projectsHeader.classList.add('fade');
+		projectsParagraph.classList.add('fade');
 	}
 });

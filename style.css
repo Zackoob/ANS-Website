@@ -25,6 +25,7 @@ body {
 .hidden {
 	opacity: 0;
     transform: translateY(200px);
+    color: #ffffff;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -95,6 +96,7 @@ header h2 {
     line-height: 1.2;
     position: fixed;
     top: 50%;
+    left: 5%;
     transform: translateY(-50%);
 	opacity: 1;
     margin: auto;
@@ -130,12 +132,17 @@ header h2 {
 	transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;	
 }
 
+
+.main {
+    height: 2000px;
+}
+
 #welcomeBackground {
     position: fixed;
     top: 30%;
-    left: 10%;
-    right: 10%;
-    width: 80%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
     height: 40%;
     padding: 40px;
     margin: auto;
@@ -149,6 +156,35 @@ header h2 {
 } 
 
 #welcomeBackground.fade {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.75s ease-in-out;
+}
+
+#welcomeBackground.project-background {
+    top: 25%;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    height: 50%;
+    transition: all 0.75s ease-in-out;
+}
+
+#projects-header, #projects-paragraph {
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+	opacity: 1;
+    margin: auto;
+    text-align: center;
+	padding-top: 5vh;
+    font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+	color: white;
+	transition: all 0.75s ease-in-out;
+}
+#projects-header.fade, #projects-paragraph.fade {
     opacity: 0;
     transform: translateY(100px);
     transition: all 0.75s ease-in-out;
