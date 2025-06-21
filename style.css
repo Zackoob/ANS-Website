@@ -43,7 +43,7 @@ body::before {
 
 @media (max-width: 768px) {
     body::before {
-        background-attachment: local; /* This is a lifesaver */
+        background-attachment: local; /* This is a lifesaver for safari repaint issues */
     }
 }
 
@@ -106,46 +106,27 @@ header nav ul li a {
 header h2 {
     font-family: 'Space Grotesk', sans-serif;
 	font-weight: 700;
+    font-size: 1.5vw;
     color: #ffffff;
     margin-left: 20px;
 }
 
-/* Hero Section */
-
-/*.background {
-    position: relative;
-    overflow: hidden;
-}
-
-.background::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("Content/Hero_Background.jpg"); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
 @media (max-width: 768px) {
-    .background::before {
-        content: "";
-        position: fixed;
-        top: 0;
+    header {
+        width: 98vw;
         left: 0;
-        width: 110vw;
-        height: 110vh;
-        background-image: url("Content/Hero_Background.jpg"); 
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
+        right: 0;
     }
-} */
+    header h2 {
+        font-size: 4vw;
+    }
+    header nav ul li a {
+        font-size: 3.5vw;
+    }
+}
+
+
+/* Hero Section */
 
 #HeroHeading, #HeroByline {
     font-size: 3.5vw;
@@ -189,11 +170,23 @@ header h2 {
 	transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;	
 }
 
+@media (max-width: 768px) {
+    #HeroHeading, #HeroByline {
+        font-size: 10vw;
+        top: 40%;
+        left: 0%;
+        right: 0%;
+        width: 80%;
+    }
+    #HeroByline {
+        top: 60%;
+    }
+}
 
 /* Welcome Section */
 
 .main {
-    height: 200vh;
+    height: 400vh;
 }
 
 #welcomeBackground {
@@ -260,6 +253,34 @@ header h2 {
     transform: translate(-50%, -50%) translateY(-100px);
     transition: all 0.75s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    #welcomeBackground {
+        top: 20%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 60%;
+    }
+    #welcome-header, #welcome-paragraph {
+        font-size: 4vw;
+        top: 10vh;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+    }
+    #welcome-paragraph {
+        top: 30vh;
+    }
+}
+
+
+
+
+/* Everything on mobile needs to be scaled to vw so it doesn't look jarring with the browser ui shrinking and growing on scroll */
+
+
+
 
 
 /* Project */
