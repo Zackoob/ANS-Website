@@ -6,15 +6,6 @@
     padding: 0;
 }
 
-/*body {
-    height: 100vh;
-	background-image: url("Content/Hero_Background.jpg");
-	background-attachment: fixed;
- 	background-position: center;
-	background-repeat: no-repeat;
- 	background-size: cover;	
-} */
-
 body {
     position: relative;
     overflow: auto;
@@ -256,21 +247,22 @@ header h2 {
 
 @media (max-width: 768px) {
     #welcomeBackground {
-        top: 20%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 60%;
+        top: 35vw;
+        left: 5vw;
+        right: 5vw;
+        width: 90vw;
+        height: 100vw;
     }
     #welcome-header, #welcome-paragraph {
-        font-size: 4vw;
-        top: 10vh;
+        font-size: 6vw;
+        top: 10vw;
         left: 50%;
-        width: 80%;
+        width: 80vw;
         transform: translate(-50%, -50%);
     }
     #welcome-paragraph {
-        top: 30vh;
+        top: 50vw;
+        font-size: 4.5vw;
     }
 }
 

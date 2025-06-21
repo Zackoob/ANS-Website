@@ -4,8 +4,8 @@ let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
-	
-    if (window.scrollY > lastScrollY) {
+	const scrollThreshold = 300;
+    if (window.scrollY > lastScrollY && window.scrollY % lastScrollY > scrollThreshold) {
         header.classList.add('headerHidden');
     }
     else {
