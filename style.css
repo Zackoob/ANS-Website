@@ -1,16 +1,17 @@
-@charset "UTF-8";
+/* Setup */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
     position: relative;
     overflow: auto;
     min-height: 100%;
-    background-image: url("Content/Hero_Background.jpg"); 
+    background-image: url("Content/Hero_Background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,11 +21,10 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("Content/Hero_Background.jpg"); 
+    background-image: url("Content/Hero_Background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,58 +32,34 @@ body::before {
     transform: translateZ(0);
 }
 
-@media (max-width: 768px) {
-    body::before {
-        background-attachment: local; /* This is a lifesaver for safari repaint issues */
-    }
-}
-
-/* Global styles - For  Javascript stuff */
-
-.headerHidden {
-	transform: translateY(-120px);
-    transition: transform 0.5s ease-in-out;
-}
-
-.hidden {
-	opacity: 0;
-    transform: translateY(200px);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-.show {
-	opacity: 1;
-	transform: translateY(0);
-	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+.background {
+    height: 4000px;
 }
 
 /* Header */
 
 header {
     position: fixed;
-    top: 1vw;
-    left: 0;
-    right: 0;
+    top: 1vw; left: 0; right: 0;
     width: 98vw;
-    margin: auto;
     overflow: visible;
+    margin: auto;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 3px solid #385ae0;
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    background-color: hsl(242, 51%, 18%);
+    border: 1px solid hsl(228, 73%, 55%);
     border-radius: 10px;
-    background-color: #201e5c;
-    transition: transform 0.5s ease-in-out;
-    z-index: 1000;
+    transition: all 0.75s ease-in-out;
 }
 
 header nav ul {
-    
     list-style-type: none;
-    padding: 0;
-    margin: 20px;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 header nav ul li a {
@@ -92,236 +68,151 @@ header nav ul li a {
     font-weight: 400;
     color: #ffffff;
     margin: 10px;
+    border-bottom: 1px solid hsl(228, 73%, 55%);
+    transition: all 0.1s ease-in-out;
 }
 
-header h2 {
-    font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
-    font-size: 1.5vw;
-    color: #ffffff;
-    margin-left: 20px;
+header nav ul li a:hover {
+    font-weight: 600;
+    border-bottom: 4px solid hsl(228, 73%, 55%);
 }
 
-@media (max-width: 768px) {
-    header {
-        width: 98vw;
-        left: 0;
-        right: 0;
-    }
-    header h2 {
-        font-size: 4vw;
-    }
-    header nav ul li a {
-        font-size: 3.5vw;
-    }
+header.header-hidden {
+    transform: translateY(-200px);
+    transition: all o.75s ease-in-out;
 }
 
+/* Hero */
 
-/* Hero Section */
-
-#HeroHeading, #HeroByline {
-    font-size: 3.5vw;
-    line-height: 1.2;
+.hero-background {
     position: fixed;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-	opacity: 1;
+    top: 25vw;
+    left: 3vw;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+    gap: 20px;
+    color: rgb(242, 242, 242);
+}
+
+#hero-header, #hero-byline {
+    transition: all 0.75s ease-in-out;
+}
+
+#hero-header {
+    font-size: 3.5vw;
+}
+
+#hero-byline {
+    font-size: 2vw;
+    font-weight: 500;
+}
+
+#hero-header.hidden, #hero-byline.hidden {
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: all 0.75 ease-in-out;
+}
+
+/* Content - Contains welcome, vision, projects */
+
+
+
+#content-background {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    color: rgb(242, 242, 242);
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsla(0,0%,100%,0.2);
+    border-radius: 10px;
+    transition: all 0.75s ease-in-out;
+}
+
+#content-background.hero {
+    opacity: 0;
+    transform: translateY(200px) transform(-50%, -50%);
+    transition: all 0.75s ease-in-out;
+}
+
+#content-background.welcome {
+    width: 40vw;
+    height: 10vw;
+    transition: all 0.75s ease-in-out;
+}
+
+#content-background.vision {
+    width: 60vw;
+    height: 27vw;
+    transition: all 0.75s ease-in-out;
+}
+
+#content-background.projects {
+    width: 50vw;
+    height: 10vw;
+    transition: all 0.75s ease-in-out;
+}
+
+#content-background h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     text-align: center;
-	padding-top: 5vh;
-    font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
-	color: white;
-	transition: all 0.75s ease-in-out;
-    z-index: 1;
+    transition: all 0.75s ease-in-out;
 }
 
-#HeroByline { 
-    font-size: 3vw;
-    top: 60%;
-    font-weight: 400;
+#content-background p {
+    position: absolute;
+    bottom: 10%;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.75s ease-in-out;
 }
 
-#HeroHeading.fade {
+#content-header.fade-out-down, #content-paragraph.fade-out-down {
+    opacity: 0;
+    transform: translateY(200px);
+    transition: all 0.75s ease-in-out;
+}
+
+#content-header.fade-out-up, #content-paragraph.fade-out-up {
     opacity: 0;
     transform: translateY(-200px);
     transition: all 0.75s ease-in-out;
 }
 
-#HeroByline.fade {
-    opacity: 0;
-    transform: translateY(-150px);
+#content-header.fade-in, #content-paragraph.fade-in {
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.75s ease-in-out;
 }
 
-#HeroHeading.hidden, #HeroByline.hidden {
-	transform: translateY(-100px);
-	opacity: 0;
-	transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;	
+#content-header.hidden, #content-paragraph.hidden {
+    display: none;
 }
 
-@media (max-width: 768px) {
-    #HeroHeading, #HeroByline {
-        font-size: 10vw;
-        top: 40%;
-        left: 0%;
-        right: 0%;
-        width: 80%;
-    }
-    #HeroByline {
-        top: 60%;
-    }
-}
-
-/* Welcome Section */
-
-.main {
-    height: 400vh;
-}
-
-#welcomeBackground {
-    position: fixed;
-    top: 30%;
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    height: 40%;
-    padding: 40px;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-family: 'Space Grotesk', sans-serif;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    transition: all 0.75s ease-in-out;
-} 
-
-#welcomeBackground.fade {
+.hidden {
     opacity: 0;
     transform: translateY(100px);
     transition: all 0.75s ease-in-out;
 }
 
-#welcome-header, #welcome-paragraph {
-    position: fixed;
-	opacity: 1;
-    margin: auto;
-    text-align: center;
-	padding-top: 5vh;
-    font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
-	color: white;
-	transition: all 0.75s ease-in-out;
-} 
-
-#welcome-header {
-    top: 5vh;
-    left: 50%;
-    font-size: 3vw;
-    font-weight: 600;
-    transform: translate(-50%, -50%);
-    min-width: 70vw;
-}
-
-#welcome-paragraph {
-    top: 24vh;
-    left: 50%;
-    font-size: 1.5vw;
-    transform: translate(-50%, -50%);
-    min-width: 70vw;
-}
-
-#welcome-header.fade, #welcome-paragraph.fade {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(100px);
+.visible {
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.75s ease-in-out;
 }
 
-#welcome-header.fade-out, #welcome-paragraph.fade-out {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(-100px);
-    transition: all 0.75s ease-in-out;
-}
-
-@media (max-width: 768px) {
-    #welcomeBackground {
-        top: 35vw;
-        left: 5vw;
-        right: 5vw;
-        width: 90vw;
-        height: 100vw;
-    }
-    #welcome-header, #welcome-paragraph {
-        font-size: 6vw;
-        top: 10vw;
-        left: 50%;
-        width: 80vw;
-        transform: translate(-50%, -50%);
-    }
-    #welcome-paragraph {
-        top: 50vw;
-        font-size: 4.5vw;
-    }
-}
-
-
-
-
-/* Everything on mobile needs to be scaled to vw so it doesn't look jarring with the browser ui shrinking and growing on scroll */
-
-
-
-
-
-/* Project */
-
-#welcomeBackground.project-background {
-    top: 25%;
-    left: 10%;
-    right: 10%;
-    width: 80%;
-    height: 50%;
-    transition: all 0.75s ease-in-out;
-}
-
-#projects-header, #projects-paragraph {
-    position: fixed;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-	opacity: 1;
-    margin: auto;
-    text-align: center;
-	padding-top: 5vh;
-    font-family: 'Space Grotesk', sans-serif;
-	font-weight: 500;
-	color: white;
-	transition: all 0.75s ease-in-out;
-}
-#projects-header {
-    top: 5vh;
-    font-size: 3vw;
-    font-weight: 600;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    min-width: 70vw;
-    transition: all 0.75s ease-in-out;
-}
-
-#projects-paragraph {
-    top: 26vh;
-    left: 50%;
-    font-size: 1.5vw;
-    transform: translate(-50%, -50%);
-    min-width: 70vw;
-    transition: all 0.75s ease-in-out;
-}
-
-
-#projects-header.fade, #projects-paragraph.fade {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(100px) scale(0.5);
-    transition: all 0.75s ease-in-out;
-}
+/* ToDo - Tidy up content */
