@@ -36,6 +36,12 @@ body::before {
     height: 4000px;
 }
 
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: local; /* This is a lifesaver for safari repaint issues */
+    }
+}
+
 /* Header */
 
 header {
@@ -51,8 +57,8 @@ header {
     font-family: 'Space Grotesk', sans-serif;
     color: white;
     background-color: hsla(242, 51%, 18%, 0.2);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
     border: 1px solid hsl(228, 73%, 55%);
     border-radius: 10px;
     transition: all 0.75s ease-in-out;
@@ -82,6 +88,20 @@ header nav ul li a:hover {
 header.header-hidden {
     transform: translateY(-200px);
     transition: all o.75s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    header {
+        width: 98vw;
+        left: 0;
+        right: 0;
+    }
+    header h2 {
+        font-size: 4vw;
+    }
+    header nav ul li a {
+        font-size: 3.5vw;
+    }
 }
 
 /* Hero */
@@ -115,6 +135,25 @@ header.header-hidden {
     opacity: 0;
     transform: translateY(-200px);
     transition: all 0.75 ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .hero-background {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    #hero-header, #hero-byline {
+        margin: auto;
+        text-align: center;
+        font-size: 10vw;
+        padding-top: 40%;
+        width: 80%;
+    }
+    #hero-byline {
+        padding-top: 0;
+    }
 }
 
 /* Content - Contains welcome, vision, projects */
@@ -215,6 +254,46 @@ header.header-hidden {
     opacity: 1;
     transform: translateY(0);
     transition: all 0.75s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    #content-background h2 {
+        top: 5vw;
+        font-size: 6vw;
+    }
+
+    #content-background p {
+        bottom: 5vw;
+        font-size: 4.5vw;
+    }
+
+    #content-background.hero {
+        opacity: 0;
+        transform: translateY(200px) transform(-50%, -50%);
+        transition: all 0.75s ease-in-out;
+    }
+    
+    #content-background.welcome {
+        width: 80vw;
+        height: 70vw;
+        transition: all 0.75s ease-in-out;
+    }
+    
+    #content-background.vision {
+        width: 90vw;
+        height: 150vw;
+        transition: all 0.75s ease-in-out;
+    }
+
+    #content-background.vision p {
+        font-size: 3.5vw;
+    }
+    
+    #content-background.projects {
+        width: 80vw;
+        height: 60vw;
+        transition: all 0.75s ease-in-out;
+    }
 }
 
 /* ToDo - Tidy up content */
