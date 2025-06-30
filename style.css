@@ -62,6 +62,7 @@ header {
     border: 1px solid hsl(228, 73%, 55%);
     border-radius: 10px;
     transition: all 0.75s ease-in-out;
+    z-index: 1000;
 }
 
 header nav ul {
